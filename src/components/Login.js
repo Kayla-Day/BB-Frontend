@@ -27,9 +27,9 @@ export default function Login() {
           path: "/",
         });
         // redirect user to the auth page
-        setTimeout(() => {
-          window.location.href = "/auth";
-        }, 1000);
+        // setTimeout(() => {
+        window.location.href = "/auth";
+        // }, 1000);
         setLogin(true);
       })
       .catch((error) => {
@@ -43,7 +43,6 @@ export default function Login() {
 
   return (
     <>
-      {" "}
       <h2>Login</h2>
       <Form onSubmit={(e) => handleSubmit(e)}>
         {/* email */}
