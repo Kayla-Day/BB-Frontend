@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "react-bootstrap/Card";
+import { Col, Button, Row } from "react-bootstrap";
 
 export default function Home() {
   const [message, setMessage] = useState("");
@@ -23,9 +25,33 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-center">Home Component</h1>
-      <h3 className="text-center text-danger">{message}</h3>
-    </div>
+    <Card className="text-center" style={{ width: "26rem" }}>
+      <Card.Header as="h3">Welcome to Bad Bank</Card.Header>
+      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Body>
+        <Card.Title>
+          Navigate using the links above
+          <br />
+          or the buttons below!
+          <h6>{message}</h6>
+        </Card.Title>
+        <Row>
+          <Col sm={6} mb={3} mb-sm={0}>
+            <Card.Text>Don't have an account? Register Now!</Card.Text>
+
+            <Button variant="primary" href="/register">
+              Register
+            </Button>
+          </Col>
+
+          <Col sm={6}>
+            <Card.Text>Already a member? Login to your account! </Card.Text>
+            <Button variant="primary" href="/login">
+              Login
+            </Button>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Form, Button } from "react-bootstrap";
+import { Card, Row, Form, Button } from "react-bootstrap";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -22,6 +22,7 @@ export default function Register() {
     // make the API call
     axios(configuration)
       .then((result) => {
+        console.log(result);
         setRegister(true);
       })
       .catch((error) => {
@@ -29,66 +30,69 @@ export default function Register() {
       });
     // prevent the form from refreshing the whole page
     e.preventDefault();
-    // make a popup alert showing the "submitted" text
-    // alert("Submited");
   };
 
   return (
-    <>
-      {" "}
-      <h2>Register</h2>
-      <Form onSubmit={(e) => handleSubmit(e)}>
-        {/* email */}
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter email"
-          />
-        </Form.Group>
+    <Card className="text-center" style={{ width: "26rem" }}>
+      <Card.Header as="h3">Register</Card.Header>
+      <Card.Body>
+        <Card.Title>Complete the form to register</Card.Title>
 
-        {/* password */}
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-        </Form.Group>
+        <Row>
+          <Form onSubmit={(e) => handleSubmit(e)}>
+            {/* email */}
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter email"
+              />
+            </Form.Group>
 
-        {/* balance */}
-        <Form.Group controlId="formBasicBalance">
-          <Form.Label>Initial Deposit</Form.Label>
-          <Form.Control
-            type="balance"
-            name="balance"
-            value={balance}
-            onChange={(e) => setBalance(e.target.value)}
-            placeholder="Enter initial deposit"
-          />
-        </Form.Group>
+            {/* password */}
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+            </Form.Group>
 
-        {/* submit button */}
-        <Button
-          variant="primary"
-          type="submit"
-          onClick={(e) => handleSubmit(e)}
-        >
-          Register
-        </Button>
-        {/* display success message */}
-        {register ? (
-          <p className="text-success">You Are Registered Successfully</p>
-        ) : (
-          <p className="text-danger">You Are Not Registered</p>
-        )}
-      </Form>
-    </>
+            {/* balance */}
+            <Form.Group controlId="formBasicBalance">
+              <Form.Label>Initial Deposit</Form.Label>
+              <Form.Control
+                type="balance"
+                name="balance"
+                value={balance}
+                onChange={(e) => setBalance(e.target.value)}
+                placeholder="Enter initial deposit"
+              />
+            </Form.Group>
+
+            {/* submit button */}
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={(e) => handleSubmit(e)}
+            >
+              Register
+            </Button>
+            {/* display success message */}
+            {register ? (
+              <p className="text-success">You Are Registered Successfully</p>
+            ) : (
+              <p className="text-danger">You Are Not Registered</p>
+            )}
+          </Form>
+        </Row>
+      </Card.Body>
+    </Card>
   );
 }
