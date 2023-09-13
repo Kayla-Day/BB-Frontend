@@ -4,9 +4,12 @@ import Navbar from "react-bootstrap/Navbar";
 
 function NavigationBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        {/* <Navbar.Brand href="/">Home</Navbar.Brand> */}
+    <Navbar
+      expand="lg"
+      style={{ backgroundColor: "#C3964B" }}
+      // className="bg-body-tertiary"
+    >
+      <Container xs={12} sm={12} md={12} lg={12}>
         <Navbar.Brand href="/free">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
