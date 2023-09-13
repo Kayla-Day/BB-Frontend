@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Check it out at:
-<a href="https://kayla-guimontfullstackbankingapp.netlify.app">Portfolio<a>
+<a href="https://kayla-guimontfullstackbankingapp.netlify.app">Bad Bank Application<a>
 
 ## Available Scripts
 
